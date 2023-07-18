@@ -1,12 +1,16 @@
 package com.local.kattalocal.kattapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 @Entity
-public class Business {
+@Table(name = "business")
+public class Business implements Serializable {
 
   private static final long serialVersionUID = 432154291451321L;
 
@@ -16,6 +20,19 @@ public class Business {
 
   private String name;
   private String type;
+
+  @jakarta.persistence.Column(name = "license_number")
+  private String licenseNumber;
+
+  public String getLicenseNumber() {
+    return licenseNumber;
+  }
+
+  public void setLicenseNumber(String licenseNumber) {
+    this.licenseNumber = licenseNumber;
+  }
+
+  @jakarta.persistence.Column(name = "is_active")
   private boolean isActive;
 
   public Long getId() {
