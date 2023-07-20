@@ -2,6 +2,7 @@ package com.local.kattalocal.kattapp.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,7 +31,15 @@ public class Offer {
   private Date endDate;
   private String image;
 
-  @ManyToOne
+  public Business getBusiness() {
+    return business;
+  }
+
+  public void setBusiness(Business business) {
+    this.business = business;
+  }
+
+  @ManyToOne()
   @JoinColumn(name = "business_id", referencedColumnName = "id")
   private Business business;
 
