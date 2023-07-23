@@ -7,6 +7,10 @@ public interface NearByOffers {
   String getTitle();
   String getDescription();
   double getDistance();
+  String getCurrentPrice();
+  String getOfferPrice();
+  String getStartDate();
+  String getEndDate();
 
 
 
