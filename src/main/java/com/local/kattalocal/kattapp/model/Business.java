@@ -24,6 +24,9 @@ public class Business implements Serializable {
   @jakarta.persistence.Column(name = "license_number")
   private String licenseNumber;
 
+  private Double latitude;
+  private Double longitude;
+
   public String getLicenseNumber() {
     return licenseNumber;
   }
@@ -65,5 +68,21 @@ public class Business implements Serializable {
 
   public void setActive(boolean active) {
     isActive = active;
+  }
+
+  public Double getLatitude() {
+    return latitude;
+  }
+
+  public void setLatitude(Double latitude) {
+    this.latitude = latitude;
+  }
+
+  public Double getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(Double longitude) {
+    this.longitude = longitude;
   }
 }

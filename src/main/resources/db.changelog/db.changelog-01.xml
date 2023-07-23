@@ -13,6 +13,8 @@
       <constraints unique="true" uniqueConstraintName="license_unique"/>
       </column>
       <column name="is_active" type="BOOLEAN"/>
+      <column name="latitude" type="DECIMAL(6,4)"/>
+      <column name="longitude" type="DECIMAL(6,4)"/>
 
     </createTable>
     <createTable tableName="offer">
