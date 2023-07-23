@@ -2,6 +2,7 @@ package com.local.kattalocal.kattapp.service;
 
 import com.local.kattalocal.kattapp.model.Business;
 import com.local.kattalocal.kattapp.model.Offer;
+import com.local.kattalocal.kattapp.model.projection.NearByOffers;
 import com.local.kattalocal.kattapp.repository.BusinessRepo;
 import com.local.kattalocal.kattapp.repository.OfferRepository;
 import java.util.List;
@@ -22,6 +23,10 @@ public class OfferService {
   public List<Offer> getOffersForBusiness(Long businessId) {
 
       return offerRepository.findByBusinessId(businessId);
+  }
+
+  public List<NearByOffers> getNearByOffers(double lat , double lon) {
+    return offerRepository.findNearByOffers(lat,lon);
   }
 
 }
