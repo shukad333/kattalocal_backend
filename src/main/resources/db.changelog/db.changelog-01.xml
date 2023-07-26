@@ -51,5 +51,7 @@
         onUpdate="RESTRICT"
         referencedColumnNames="id"
         referencedTableName="business"/>
+
   </changeSet>
+
 </databaseChangeLog>
