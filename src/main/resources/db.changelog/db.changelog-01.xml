@@ -15,6 +15,10 @@
       <column name="is_active" type="BOOLEAN"/>
       <column name="latitude" type="DECIMAL(6,4)"/>
       <column name="longitude" type="DECIMAL(6,4)"/>
+      <column name="type" type="VARCHAR(255)"/>
+      <column name="address1" type="VARCHAR(255)"/>
+      <column name="address2" type="VARCHAR(255)"/>
+      <column name="address3" type="VARCHAR(255)"/>
 
     </createTable>
     <createTable tableName="offer">
