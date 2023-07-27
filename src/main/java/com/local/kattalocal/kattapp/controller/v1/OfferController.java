@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,11 @@ public class OfferController {
   @GetMapping("v1/offers/nearby")
   public ResponseEntity<List<NearByOffers>> getNearbyOffers(@RequestParam("latitude") double lat , @RequestParam("longitude") double longitude) {
     return ResponseEntity.ok(offerService.getNearByOffers(lat,longitude));
+  }
+
+  @PutMapping("v1/{businessId}/offers")
+  public ResponseEntity<Offer> updateOffer() {
+    return null;
   }
 
 
