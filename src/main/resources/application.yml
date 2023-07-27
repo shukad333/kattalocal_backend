@@ -21,7 +21,7 @@ server:
     context-path: /api
 
 logging:
-  level:
-    root: DEBUG
+  level.com:
+    root: INFO
 auth:
   tokenSecret: Kq8bh13C2gKohzbvxFjFh2btLovE2XsUuozgOSXBEv3a09AjVcSiDJaJR9yTkso

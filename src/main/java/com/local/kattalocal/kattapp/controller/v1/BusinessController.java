@@ -4,6 +4,8 @@ import com.local.kattalocal.kattapp.model.Business;
 import com.local.kattalocal.kattapp.model.Health;
 import com.local.kattalocal.kattapp.service.BusinessService;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BusinessController {
 
+  Logger logger = LoggerFactory.getLogger(BusinessController.class);
+
   @Autowired
   private BusinessService businessService;
 
@@ -32,6 +36,7 @@ public class BusinessController {
 
   @GetMapping("/v1/business")
   public ResponseEntity<List<Business>> getBusiness() {
+    logger.info("getting all businesses");
     return ResponseEntity.ok(businessService.getAllBusinesses());
   }
 
