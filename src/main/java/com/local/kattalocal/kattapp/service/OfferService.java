@@ -7,6 +7,8 @@ import com.local.kattalocal.kattapp.repository.BusinessRepo;
 import com.local.kattalocal.kattapp.repository.OfferRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,6 +29,11 @@ public class OfferService {
 
   public List<NearByOffers> getNearByOffers(double lat , double lon) {
     return offerRepository.findNearByOffers(lat,lon);
+  }
+
+  public List<NearByOffers> getNearByOffers(double lat , double lon,int page,int size) {
+    Pageable pageable = PageRequest.of(page,size);
+    return offerRepository.findNearByOffersWithPagination(lat,lon,pageable);
   }
 
 }

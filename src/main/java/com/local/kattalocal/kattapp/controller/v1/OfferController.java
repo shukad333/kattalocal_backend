@@ -34,9 +34,15 @@ public class OfferController {
     return ResponseEntity.ok(offerService.getOffersForBusiness(businessId));
   }
 
-  @GetMapping("v1/offers/nearby")
+  @GetMapping("v1/offers/nearby/all")
   public ResponseEntity<List<NearByOffers>> getNearbyOffers(@RequestParam("latitude") double lat , @RequestParam("longitude") double longitude) {
     return ResponseEntity.ok(offerService.getNearByOffers(lat,longitude));
+  }
+
+  @GetMapping("v1/offers/nearby")
+  public ResponseEntity<List<NearByOffers>> getNearbyOffersPageable(@RequestParam("latitude") double lat , @RequestParam("longitude") double longitude, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) {
+    System.out.println("XXXX");
+    return ResponseEntity.ok(offerService.getNearByOffers(lat,longitude,pageNumber,pageSize));
   }
 
   @PutMapping("v1/{businessId}/offers")
