@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EventsController {
 
-  @Autowired private EventsService eventsService;
+  @Autowired
+  private EventsService eventsService;
 
   @PostMapping(value = "v1/{businessId}/events")
-  public ResponseEntity<Events> newEvent(@PathVariable("businessId") long businessId , @RequestBody Events events) {
-    return new ResponseEntity<>(eventsService.save(businessId,events), HttpStatus.CREATED);
+  public ResponseEntity<Events> newEvent(@PathVariable("businessId") long businessId,
+      @RequestBody Events events) {
+    return new ResponseEntity<>(eventsService.save(businessId, events), HttpStatus.CREATED);
   }
 
   @GetMapping("v1/{businessId}/events")
@@ -34,15 +36,15 @@ public class EventsController {
   }
 
   @GetMapping("v1/events/nearby")
-  public ResponseEntity<List<NearByEvents>> getNearbyEvents(@RequestParam("latitude") double lat , @RequestParam("longitude") double longitude) {
-    return ResponseEntity.ok(eventsService.getNearByEvents(lat,longitude));
+  public ResponseEntity<List<NearByEvents>> getNearbyEvents(@RequestParam("latitude") double lat,
+      @RequestParam("longitude") double longitude) {
+    return ResponseEntity.ok(eventsService.getNearByEvents(lat, longitude));
   }
 
-  @PutMapping("v1/{businessId}/events")
-  public ResponseEntity<Events> updateEvents() {
-    return null;
+  @PutMapping("v1/events/{eventId}/invalidate")
+  public ResponseEntity<Events> invalidateEvent(@PathVariable("eventId") Long eventId) {
+    return ResponseEntity.ok(eventsService.invalidateEvent(eventId));
   }
-
 
 
 }

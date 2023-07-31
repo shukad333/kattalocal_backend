@@ -31,5 +31,11 @@ public class EventsService {
     return eventsRepository.findNearByEvents(lat,lon);
   }
 
+  public Events invalidateEvent(Long eventId) {
+    Events event = eventsRepository.findById(eventId).get();
+    event.setActive(false);
+    return eventsRepository.save(event);
+  }
+
 
 }
