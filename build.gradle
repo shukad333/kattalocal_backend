@@ -30,6 +30,8 @@ dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-security"
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 	implementation 'org.slf4j:slf4j-simple:1.7.30'
+	compileOnly 'org.projectlombok:lombok:1.18.28'
+	annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
 
 }
