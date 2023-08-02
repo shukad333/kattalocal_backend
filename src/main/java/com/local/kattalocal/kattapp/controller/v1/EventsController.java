@@ -28,12 +28,13 @@ public class EventsController {
   @PostMapping(value = "v1/{businessId}/events")
   public ResponseEntity<Events> newEvent(@PathVariable("businessId") long businessId,
       @RequestBody Events events) {
+    log.debug("Creating new events{} for business {}",events,businessId);
     return new ResponseEntity<>(eventsService.save(businessId, events), HttpStatus.CREATED);
   }
 
   @GetMapping("v1/{businessId}/events")
   public ResponseEntity<List<Events>> getOffersForBusiness(@PathVariable Long businessId) {
-
+    log.debug("Getting all events for business {}",businessId);
     return ResponseEntity.ok(eventsService.getEventsForBusiness(businessId));
   }
 

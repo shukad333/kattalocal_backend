@@ -113,4 +113,20 @@ public class Business implements Serializable {
   public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
+
+  @Override
+  public String toString() {
+    return "Business{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", type='" + type + '\'' +
+        ", licenseNumber='" + licenseNumber + '\'' +
+        ", latitude=" + latitude +
+        ", longitude=" + longitude +
+        ", address1='" + address1 + '\'' +
+        ", address2='" + address2 + '\'' +
+        ", address3='" + address3 + '\'' +
+        ", isActive=" + isActive +
+        '}';
+  }
 }

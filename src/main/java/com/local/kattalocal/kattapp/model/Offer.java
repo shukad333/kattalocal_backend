@@ -105,4 +105,19 @@ public class Offer {
   public void setImage(String image) {
     this.image = image;
   }
+
+  @Override
+  public String toString() {
+    return "Offer{" +
+        "id=" + id +
+        ", title='" + title + '\'' +
+        ", description='" + description + '\'' +
+        ", currentPrice='" + currentPrice + '\'' +
+        ", offerPrice='" + offerPrice + '\'' +
+        ", startDate=" + startDate +
+        ", endDate=" + endDate +
+        ", image='" + image + '\'' +
+        ", business=" + business +
+        '}';
+  }
 }

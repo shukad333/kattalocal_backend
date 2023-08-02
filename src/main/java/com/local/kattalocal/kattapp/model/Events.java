@@ -94,4 +94,18 @@ public class Events {
   public void setActive(boolean active) {
     isActive = active;
   }
+
+  @Override
+  public String toString() {
+    return "Events{" +
+        "id=" + id +
+        ", title='" + title + '\'' +
+        ", description='" + description + '\'' +
+        ", startDate=" + startDate +
+        ", endDate=" + endDate +
+        ", image='" + image + '\'' +
+        ", isActive=" + isActive +
+        ", business=" + business +
+        '}';
+  }
 }
