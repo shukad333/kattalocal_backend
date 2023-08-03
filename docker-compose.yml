@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  docker-mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=katta_local
+      - MYSQL_PASSWORD=root123
+    ports:
+      - 3306:3306
+  app:
+    image: kattapp:0.0.1-SNAPSHOT
+    ports:
+      - 8081:8081
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/katta_local?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    depends_on:
+      - docker-mysql
