@@ -34,6 +34,17 @@ public class BusinessService {
     updateBusinessStatus(businessId, false);
   }
 
+  public Business findBusiness(Long businessId) {
+    Optional<Business> businessOptional =  businessRepo.findById(businessId);
+    if(businessOptional.isPresent()) {
+      return businessOptional.get();
+    }
+    String message = String.format("No business with id %s found",businessId);
+    log.error(message);
+
+    throw new RuntimeException(message);
+  }
+
   private void updateBusinessStatus(Long businessId, boolean status) {
     log.debug("Updating business {} to status {}", businessId, status);
     Optional<Business> businessOptional = businessRepo.findById(businessId);

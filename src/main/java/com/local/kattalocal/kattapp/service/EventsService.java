@@ -7,6 +7,7 @@ import com.local.kattalocal.kattapp.model.projection.NearByOffers;
 import com.local.kattalocal.kattapp.repository.BusinessRepo;
 import com.local.kattalocal.kattapp.repository.EventsRepository;
 import java.util.List;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,15 @@ public class EventsService {
     Events event = eventsRepository.findById(eventId).get();
     event.setActive(false);
     return eventsRepository.save(event);
+  }
+
+  public Events findEventsById(Long id) {
+    Optional<Events> eventsOptional = eventsRepository.findById(id);
+    if(eventsOptional.isPresent()) {
+      return eventsOptional.get();
+    }
+    String message = String.format("No Events found with id %s",id);
+    throw new RuntimeException(message);
   }
 
 
