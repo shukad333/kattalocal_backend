@@ -36,6 +36,17 @@ public class BusinessService {
     updateBusinessStatus(businessId, false);
   }
 
+  public void activateBusiness(Long businessId) {
+    log.debug("Activating business {}", businessId);
+    log.debug("Updating business {} to business status {}", businessId, "ACTIVE");
+    Optional<Business> businessOptional = businessRepo.findById(businessId);
+    if (businessOptional.isPresent()) {
+      Business business = businessOptional.get();
+      business.setBusinessStatus(BusinessStatus.ACTIVE);
+      businessRepo.save(business);
+    }
+  }
+
   public Business findBusiness(Long businessId) {
     Optional<Business> businessOptional =  businessRepo.findById(businessId);
     if(businessOptional.isPresent()) {

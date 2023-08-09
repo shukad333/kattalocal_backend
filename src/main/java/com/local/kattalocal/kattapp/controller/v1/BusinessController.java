@@ -47,4 +47,11 @@ public class BusinessController {
     return ResponseEntity.ok(null);
   }
 
+  @PutMapping("/v1/business/{businessId}/activate")
+  public ResponseEntity<Void> activateBusiness(@PathVariable Long businessId) {
+    log.debug("Activating business");
+    businessService.activateBusiness(businessId);
+    return ResponseEntity.ok(null);
+  }
+
 }
