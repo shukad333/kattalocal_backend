@@ -1,11 +1,14 @@
 package com.local.kattalocal.kattapp.model;
 
+import com.local.kattalocal.kattapp.model.enums.BusinessStatus;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +33,18 @@ public class Business implements Serializable {
   private String address1;
   private String address2;
   private String address3;
+
+  @Enumerated(EnumType.STRING)
+  @Column(name = "business_status")
+  private BusinessStatus businessStatus;
+
+  public BusinessStatus getBusinessStatus() {
+    return businessStatus;
+  }
+
+  public void setBusinessStatus(BusinessStatus businessStatus) {
+    this.businessStatus = businessStatus;
+  }
 
   public String getAddress1() {
     return address1;

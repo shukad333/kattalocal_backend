@@ -1,6 +1,7 @@
 package com.local.kattalocal.kattapp.service;
 
 import com.local.kattalocal.kattapp.model.Business;
+import com.local.kattalocal.kattapp.model.enums.BusinessStatus;
 import com.local.kattalocal.kattapp.repository.BusinessRepo;
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +22,7 @@ public class BusinessService {
   public Business createNew(Business business) {
     log.debug("Creating new business {}", business);
     business.setActive(true);
+    business.setBusinessStatus(BusinessStatus.PENDING);
     return businessRepo.save(business);
 
   }
