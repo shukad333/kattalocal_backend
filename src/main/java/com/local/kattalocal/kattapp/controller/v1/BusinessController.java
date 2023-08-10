@@ -1,5 +1,6 @@
 package com.local.kattalocal.kattapp.controller.v1;
 
+import com.local.kattalocal.kattapp.constants.UrlConstants;
 import com.local.kattalocal.kattapp.model.Business;
 import com.local.kattalocal.kattapp.model.Health;
 import com.local.kattalocal.kattapp.service.BusinessService;
@@ -26,7 +27,7 @@ public class BusinessController {
   @Autowired
   private BusinessService businessService;
 
-  @PostMapping(path = "/v1/business")
+  @PostMapping(path = UrlConstants.BUSINESS_URI)
   public ResponseEntity<Business> newBusiness(@RequestBody Business business) {
     log.debug("Creating new business {}", business);
     return new ResponseEntity<>(businessService.createNew(business), HttpStatus.CREATED);
@@ -34,7 +35,7 @@ public class BusinessController {
 
   }
 
-  @GetMapping("/v1/business")
+  @GetMapping(path = UrlConstants.BUSINESS_URI)
   public ResponseEntity<List<Business>> getBusiness() {
     log.debug("getting all businesses");
     return ResponseEntity.ok(businessService.getAllBusinesses());
