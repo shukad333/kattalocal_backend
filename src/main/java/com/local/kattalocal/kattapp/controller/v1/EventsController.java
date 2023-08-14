@@ -32,7 +32,7 @@ public class EventsController {
     return new ResponseEntity<>(eventsService.save(businessId, events), HttpStatus.CREATED);
   }
 
-  @GetMapping("v1/{businessId}/events")
+  @GetMapping("v1/business/{businessId}/events")
   public ResponseEntity<List<Events>> getOffersForBusiness(@PathVariable Long businessId) {
     log.debug("Getting all events for business {}",businessId);
     return ResponseEntity.ok(eventsService.getEventsForBusiness(businessId));

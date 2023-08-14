@@ -6,6 +6,8 @@ import com.local.kattalocal.kattapp.model.Events;
 import com.local.kattalocal.kattapp.model.Offer;
 import com.local.kattalocal.kattapp.repository.AnalyticsRepo;
 import com.local.kattalocal.kattapp.util.AnalyticsValidator;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

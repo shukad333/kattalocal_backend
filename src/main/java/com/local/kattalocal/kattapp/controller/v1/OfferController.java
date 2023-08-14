@@ -28,7 +28,7 @@ public class OfferController {
 
   }
 
-  @GetMapping("v1/{businessId}/offers")
+  @GetMapping("v1/business/{businessId}/offers")
   public ResponseEntity<List<Offer>> getOffersForBusiness(@PathVariable Long businessId) {
 
     return ResponseEntity.ok(offerService.getOffersForBusiness(businessId));
