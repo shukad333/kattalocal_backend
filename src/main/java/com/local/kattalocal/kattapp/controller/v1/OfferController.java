@@ -21,7 +21,7 @@ public class OfferController {
   @Autowired
   private OfferService offerService;
 
-  @PostMapping("v1/{businessId}/offers")
+  @PostMapping("v1/business/{businessId}/offers")
   public ResponseEntity<Offer> addNewOffer(@RequestBody Offer offer,@PathVariable Long businessId) {
 
     return new ResponseEntity<>(offerService.save(offer,businessId), HttpStatus.CREATED);

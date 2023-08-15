@@ -25,7 +25,7 @@ public class EventsController {
   @Autowired
   private EventsService eventsService;
 
-  @PostMapping(value = "v1/{businessId}/events")
+  @PostMapping(value = "v1/business/{businessId}/events")
   public ResponseEntity<Events> newEvent(@PathVariable("businessId") long businessId,
       @RequestBody Events events) {
     log.debug("Creating new events{} for business {}",events,businessId);
