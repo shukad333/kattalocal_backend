@@ -13,4 +13,6 @@ public class UrlConstants {
 
   public static final String OFFERS_URI_V1 = URL_SEP + VERSION_V1 + URL_SEP + OFFERS;
 
+  public static final String EVENTS = "events";
+
 }
