@@ -9,4 +9,8 @@ public class UrlConstants {
 
   public static final String BUSINESS_URI = URL_SEP + VERSION_V1 + URL_SEP + BUSINESS;
 
+  public static final String OFFERS = "offers";
+
+  public static final String OFFERS_URI_V1 = URL_SEP + VERSION_V1 + URL_SEP + OFFERS;
+
 }
