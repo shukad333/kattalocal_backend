@@ -32,6 +32,28 @@ public class Offer {
 
   private String quantity;
 
+  @Column(name = "is_flyer")
+  private boolean isFlyer;
+
+  @Column(name = "is_active")
+  private boolean isActive;
+
+  public boolean isFlyer() {
+    return isFlyer;
+  }
+
+  public void setFlyer(boolean flyer) {
+    isFlyer = flyer;
+  }
+
+  public boolean isActive() {
+    return isActive;
+  }
+
+  public void setActive(boolean active) {
+    isActive = active;
+  }
+
   public String getQuantity() {
     return quantity;
   }

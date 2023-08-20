@@ -36,6 +36,7 @@
       <column name="image" type="VARCHAR(255)"/>
       <column name="is_active" type="BOOLEAN"/>
       <column name="quantity" type="VARCHAR(50)"/>
+      <column name="is_flyer" type="BOOLEAN"/>
     </createTable>
 
     <createTable tableName="events">
