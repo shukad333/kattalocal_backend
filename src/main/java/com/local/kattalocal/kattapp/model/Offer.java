@@ -30,6 +30,16 @@ public class Offer {
   private Date endDate;
   private String image;
 
+  private String quantity;
+
+  public String getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(String quantity) {
+    this.quantity = quantity;
+  }
+
   public Business getBusiness() {
     return business;
   }

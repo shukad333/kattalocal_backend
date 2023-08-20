@@ -35,6 +35,7 @@
       <column name="end_date" type="DATETIME"/>
       <column name="image" type="VARCHAR(255)"/>
       <column name="is_active" type="BOOLEAN"/>
+      <column name="quantity" type="VARCHAR(50)"/>
     </createTable>
 
     <createTable tableName="events">
