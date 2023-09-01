@@ -1,7 +1,12 @@
 package com.local.kattalocal.kattapp.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Tag {
 
+  @Id
   private Long id;
   private String title;
 
