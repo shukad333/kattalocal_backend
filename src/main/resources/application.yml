@@ -25,3 +25,8 @@ logging:
     root: INFO
 auth:
   tokenSecret: Kq8bh13C2gKohzbvxFjFh2btLovE2XsUuozgOSXBEv3a09AjVcSiDJaJR9yTkso
+amazon:
+  aws:
+    access-key:
+    secret-key:
+    region:
