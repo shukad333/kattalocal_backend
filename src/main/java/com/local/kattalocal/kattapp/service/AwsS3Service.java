@@ -2,6 +2,8 @@ package com.local.kattalocal.kattapp.service;
 
 import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.AmazonS3;
+import com.local.kattalocal.kattapp.constants.ApplicationConstants;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,10 @@ public class AwsS3Service {
     calendar.add(Calendar.MINUTE, 10); //validity of 10 minutes
     return amazonS3.generatePresignedUrl(bucketName, filePath, calendar.getTime(), httpMethod)
         .toString();
+  }
+
+  public URL getUrlFromFile(String fileName) {
+    return amazonS3.getUrl(ApplicationConstants.BUCKET_NAME,fileName);
   }
 
 }
