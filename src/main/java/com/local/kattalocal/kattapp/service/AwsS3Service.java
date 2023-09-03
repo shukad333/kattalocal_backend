@@ -33,4 +33,9 @@ public class AwsS3Service {
     return amazonS3.getUrl(ApplicationConstants.BUCKET_NAME,fileName);
   }
 
+  public boolean deleteFileFromBucket(String fileName) {
+    //do we need hard delete?
+    return false;
+  }
+
 }

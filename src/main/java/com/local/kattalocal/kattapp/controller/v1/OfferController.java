@@ -2,8 +2,10 @@ package com.local.kattalocal.kattapp.controller.v1;
 
 import com.local.kattalocal.kattapp.model.Offer;
 import com.local.kattalocal.kattapp.model.projection.NearByOffers;
+import com.local.kattalocal.kattapp.model.request.Image;
 import com.local.kattalocal.kattapp.service.OfferService;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Slf4j
 public class OfferController {
 
   @Autowired
@@ -41,8 +44,16 @@ public class OfferController {
 
   @GetMapping("v1/offers/nearby")
   public ResponseEntity<List<NearByOffers>> getNearbyOffersPageable(@RequestParam("latitude") double lat , @RequestParam("longitude") double longitude, @RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) {
-    System.out.println("XXXX");
+    log.debug("Getting nearby offers!");
     return ResponseEntity.ok(offerService.getNearByOffers(lat,longitude,pageNumber,pageSize));
+  }
+
+  @PutMapping("v1/business/offers/{offerId}/image")
+  public ResponseEntity<Offer> updateOfferImage(@PathVariable("offerId") Long offerId,@RequestBody
+      Image image) {
+    log.info("Updating offer Image for Offer Id {}",offerId);
+    Offer offer = offerService.updateOfferImage(offerId,image);
+    return ResponseEntity.ok(offer);
   }
 
   @PutMapping("v1/{businessId}/offers")
